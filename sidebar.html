@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap 5 Side Bar Navigation</title>
+    <!-- bootstrap 5 css -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <!-- <script src="JS/code.jquery.com_jquery-3.7.0.min.js"></script> -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        background-color: #fff;
+        margin-top: 6.2rem;
+        overflow-x: hidden;
+      }
+
+      span {
+        color: #436f70;
+      }
+
+      .logo-container {
+        color: #fff;
+        font-family: "roboto";
+        font-weight: 700;
+        font-size: 3rem;
+      }
+
+      .logo-img {
+        width: 3rem !important;
+        height: 3rem;
+      }
+
+      #close-btn {
+        display: none;
+      }
+
+      .navbar {
+        width: 25rem;
+        height: 100vh;
+        position: fixed;
+        margin-left: -30rem;
+        background-color: #03071e;
+        transition: 0.4s;
+      }
+
+      .nav-link {
+        font-size: 1.25rem;
+      }
+
+      .nav-link:active,
+      .nav-link:focus,
+      .nav-link:hover {
+        background-color: #ffffff26;
+      }
+
+      .dropdown-menu {
+        background-color: #03071e;
+      }
+
+      .dropdown-item:active,
+      .dropdown-item:focus,
+      .dropdown-item:hover {
+        background-color: #ffffff26;
+      }
+
+      .my-container {
+        transition: 0.4s;
+      }
+
+      .active-nav {
+        margin-left: 0;
+      }
+
+      .active-cont {
+        margin-left: 25rem;
+      }
+
+      .sidebar {
+        margin-top: 5rem;
+        padding: 0;
+      }
+
+      .toggle-container {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        background-color: #03071e;
+        color: #fff;
+        width: 100vw;
+        height: 6.2rem;
+      }
+
+      .logo-container {
+        margin: 0 auto;
+      }
+
+      .sidebar-link {
+        gap: 1.2rem;
+        padding-left: 1.2rem;
+      }
+
+      a.nav-link {
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      /* .card {
+        background-color: #03071e;
+      }
+
+      .card-main {
+        color: #fff;
+        font-size: 2.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .card-detail {
+        font-size: 1.8rem;
+      }
+
+      .card-img {
+        width: 3rem;
+        height: 3rem;
+      } */
+    </style>
+  </head>
+
+  <body>
+    <nav
+      class="navbar active-nav fixed-top navbar-expand d-flex flex-column align-item-start sidebar"
+      id="sidebar"
+    >
+      <ul class="navbar-nav d-flex flex-column sidebar-link mt-5 w-100">
+        <li class="nav-item w-100">
+          <a href="#" class="nav-link text-light pl-4"
+            ><img
+              src="imgs/dashboard.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />
+            Dashboard</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <a href="#" class="nav-link text-light pl-4"
+            ><img
+              src="imgs/admin-car.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />Cars</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <a href="#" class="nav-link text-light pl-4"
+            ><img
+              src="imgs/admin-bike.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />Bikes</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <a href="#" class="nav-link text-light pl-4"
+            ><img
+              src="imgs/admin-scooter.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />Scooters</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <a href="#" class="nav-link text-light pl-4"
+            ><img
+              src="imgs/admin-ev.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />Electric Vehicles</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <a href="#" class="nav-link text-light pl-4"
+            ><img
+              src="imgs/admin-user.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />Users</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <a href="#" class="nav-link text-light pl-4"
+            ><img
+              src="imgs/admin-feedback.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />Feedbacks</a
+          >
+        </li>
+        <li class="nav-item dropdown w-100">
+          <a
+            href="#"
+            class="nav-link dropdown-toggle text-light pl-4"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            data-bs-target="#navbarDropdownMenu"
+            aria-expanded="false"
+            ><img
+              src="imgs/admin-sale.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />Sales</a
+          >
+          <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
+            <li>
+              <a href="#" class="dropdown-item text-light pl-4 p-2"
+                >Car Sales</a
+              >
+            </li>
+            <li>
+              <a href="#" class="dropdown-item text-light pl-4 p-2"
+                >Bike Sales</a
+              >
+            </li>
+            <li>
+              <a href="#" class="dropdown-item text-light pl-4 p-2"
+                >Scooter Sales</a
+              >
+            </li>
+            <li>
+              <a href="#" class="dropdown-item text-light pl-4 p-2">EV Sales</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item w-100">
+          <a href="#" class="nav-link text-light pl-4"
+            ><img
+              src="imgs/admin-logout.png"
+              alt=""
+              srcset=""
+              width="20px"
+              height="20px"
+            />Logout</a
+          >
+        </li>
+        <li class="nav-item dropdown w-100">
+          <a
+            href="#"
+            class="nav-link dropdown-toggle text-light pl-4"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            data-bs-target="#navbarDropdownMenu"
+            aria-expanded="false"
+            >Admin</a
+          >
+          <ul class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
+            <li>
+              <a href="#" class="dropdown-item text-light pl-4 p-2">Profile</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item text-light pl-4 p-2"
+                >Add Admin</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="toggle-container fixed-top">
+      <!-- <div
+        class="toggle-icon-container d-flex align-items-center justify-content-center"
+      >
+        <img
+          src="imgs/menu.png"
+          alt=""
+          class="mx-3"
+          height="30px"
+          width="30px"
+          id="menu-btn"
+        />
+      </div>
+      <div
+        class="toggle-icon-container d-flex align-items-center justify-content-center"
+      >
+        <img
+          src="imgs/close-menu.png"
+          alt=""
+          class="mx-3"
+          height="30px"
+          width="30px"
+          id="close-btn"
+        />
+      </div> -->
+      <div
+        class="navbar-brand logo-container d-flex align-items-center justify-content-center"
+      >
+        <img src="imgs/logo-icon.png" class="logo-img" /> Auto<span>Mob</span>
+      </div>
+    </div>
+
+    <section class="container p-4 my-container"></section>
+    <!-- <script>
+      var menuBtn = document.querySelector("#menu-btn");
+      var closeBtn = document.querySelector("#close-btn");
+      var sidebar = document.querySelector("#sidebar");
+      var container = document.querySelector(".my-container");
+
+      menuBtn.addEventListener("click", () => {
+        // Open the sidebar
+        sidebar.classList.add("active-nav");
+        container.classList.add("active-cont");
+        menuBtn.style.display = "none"; // Hide menu button
+        closeBtn.style.display = "block"; // Show close button
+      });
+
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.remove("active-nav");
+        container.classList.remove("active-cont");
+        closeBtn.style.display = "none";
+        menuBtn.style.display = "block";
+      });
+    </script>
+  </body> -->
+</html>
